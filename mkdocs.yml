@@ -1,0 +1,38 @@
+site_name: My Docs
+site_url: https://sitename.example
+theme:
+  name: material
+  palette:
+    # Dark Mode
+    - scheme: slate
+      toggle:
+        icon: material/weather-sunny
+        name: Dark mode
+      primary: deep orange
+      accent: deep purple
+
+    # Light Mode
+    - scheme: default
+      toggle:
+        icon: material/weather-night
+        name: Light mode
+      primary: blue
+
+plugins:
+  - marimo
+  - search
+  - blog:
+      blog_dir: blog
+      categories_allowed:
+        - category1
+        - category2
+  - tags:
+      tags_file: tags.md
+  - rss:
+      pretty_print: true
+      match_path: "blog/.*"
+      date_from_meta:
+        as_creation: date.created
+        as_update: date.updated
+        datetime_format: "%Y-%m-%d %H:%M"
+        default_timezone: Europe/London
