@@ -1,10 +1,22 @@
-site_name: My Docs
-site_url: https://sitename.example
+site_name: rnwolf.net
+site_url: https://www.rnwolf.net
+site_description: 'A personal blog and portfolio of Rüdiger Wolf.'
 site_author: 'rnwolf'
 copyright: |
-  &copy; 2025 <a href="https://github.com/rnwolf"  target="_blank" rel="noopener">Rudiger Wolf</a>'
+  &copy; Rüdiger Wolf 2025. All rights reserved.'
 theme:
   name: material
+  icon:
+    logo: fontawesome/solid/lightbulb
+  locale: en
+  custom_dir: overrides
+  features:
+    - navigation.footer
+    - navigation.tabs
+    - navigation.top
+    - content.code.annotate
+    - search.highlight
+    - search.suggest
   palette:
     # Dark Mode
     - scheme: slate
@@ -22,15 +34,24 @@ theme:
       primary: blue
 
 plugins:
-  - marimo
+  - meta
+  - tags:
+      tags_file: tags.md
+  - caption:
+      additional_identifier: ["List"]
+  - social
   - search
+  - inline-select-svg:
+      pattern: "[.]inline[.]svg$"
   - blog:
       blog_dir: blog
       categories_allowed:
-        - category1
-        - category2
-  - tags:
-      tags_file: tags.md
+        - technology
+        - health
+        - performance
+        - development
+        - finance
+        - ai
   - rss:
       pretty_print: true
       match_path: "blog/.*"
@@ -39,17 +60,27 @@ plugins:
         as_update: date.updated
         datetime_format: "%Y-%m-%d %H:%M"
         default_timezone: Europe/London
+  - pagetree
 
 extra:
   social:
     - icon: simple/youtube
-      link: https://youtube.com/@james-willett
+      link: https://www.youtube.com/@RudigerWolf
     - icon: fontawesome/brands/github
-      link: https://github.com/james-willett
+      link: https://github.com/rnwolf
     - icon: fontawesome/brands/x-twitter
-      link: https://twitter.com/TheJamesWillett
+      link: https://x.com/rnwolf
     - icon: fontawesome/brands/linkedin
-      link: https://www.linkedin.com/in/willetjames/
+      link: https://www.linkedin.com/in/rudigerwolf/
+  footer_links:
+    - text: "Privacy Policy"
+      href: "/privacy"
+    - text: "Security Policy"
+      href: "/security-policy"
+    - text: "Copyright"
+      href: "/copyright"
+    - text: "RSS"
+      href: "/feed_rss_created.xml"
 
 hooks:
   - hooks/socialmedia.py
@@ -76,6 +107,8 @@ markdown_extensions:
         - name: mermaid
           class: mermaid
           format: !!python/name:pymdownx.superfences.fence_code_format
+  - toc:
+      permalink: true
 
 nav:
   - index.md
@@ -85,5 +118,14 @@ nav:
   - About: about.md
   - Contact: contact.md
   - Projects:
-      - project1.md
-      - project2.md
+      - projects/our-planner/index.md
+      - projects/pyccpm/index.md
+
+extra_css:
+  - stylesheets/extra.css
+
+extra_javascript:
+  - javascripts/posthog-script.js
+
+exclude_docs: |
+  !.well-known

@@ -1,0 +1,45 @@
+{
+  "filename": "hello_world.py",
+  "cells": [
+    {
+      "name": "_",
+      "code": "import marimo as mo"
+    },
+    {
+      "name": "_",
+      "code": "name = mo.ui.text(placeholder=\"Enter your name\", debounce=False)\nname"
+    },
+    {
+      "name": "_",
+      "code": "mo.md(f\"Hello, **{name.value or '__'}**!\")"
+    },
+    {
+      "name": "_",
+      "code": "slider = mo.ui.slider(1, 10)\nslider"
+    },
+    {
+      "name": "_",
+      "code": "slider.value * \"🍃\""
+    },
+    {
+      "name": "_",
+      "code": "mo.md(r\"\"\"And now a chart\"\"\")"
+    },
+    {
+      "name": "_",
+      "code": "import matplotlib.pyplot as plt"
+    },
+    {
+      "name": "_",
+      "code": "import numpy as np"
+    },
+    {
+      "name": "_",
+      "code": "x = np.linspace(0, 10, 100)\ny = np.sin(x)\n\nplt.figure(figsize=(8, 4))\nplt.plot(x, y)\nplt.title('Sine Wave')\nplt.xlabel('x')\nplt.ylabel('sin(x)')\nplt.grid(True)\nplt.gca()"
+    },
+    {
+      "name": "_",
+      "code": ""
+    }
+  ]
+}

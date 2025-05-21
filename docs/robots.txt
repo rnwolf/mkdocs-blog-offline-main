@@ -1,0 +1,5 @@
+User-agent: *
+Disallow:
+
+Sitemap: https://www.rnwolf.net/sitemap.xml
+Sitemap: https://rnwolf.net/sitemap.xml
