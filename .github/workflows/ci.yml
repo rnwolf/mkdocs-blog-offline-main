@@ -29,12 +29,6 @@ jobs:
       - run: uv python install            # obey .python-version
       - run: uv sync --locked             # restore env
 
-      - name: Install dependencies
-        # Assumes dependencies are in requirements.txt.
-        # If using pyproject.toml, you might use 'uv pip install .'
-        # If using uv.lock, you might use 'uv sync'
-        run: uv pip install .
-
       - name: Build static website
         run: uv run mkdocs build
 

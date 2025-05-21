@@ -13,7 +13,7 @@ slug: marimo_notebook
 
 # Marimo Notebook
 
-[Marimo](marimo.io) a reactive Python notebook to explore data and build apps..
+[Marimo](https://marimo.io) a reactive Python notebook to explore data and build apps..
 <!-- more -->
 This video gives an overview of marimo.
 
@@ -21,7 +21,7 @@ This video gives an overview of marimo.
   <iframe width="1280" height="720" src="https://www.youtube.com/embed/3N6lInzq5MI" frameborder="0" allowfullscreen></iframe>
 </div>
 
-## Analysing data is a superpower
+## Analyzing data is a superpower
 
 Spreadsheets where the killer app for the Personal Computer.
 
@@ -32,7 +32,7 @@ Marimo has re-imagined what notebooks should have been.
 ## Marimo for interactive content on a static website
 
 It is possible to embed Marimo notebook exports into MKDocs pages.
-These exports are [WASM applications](https://en.wikipedia.org/wiki/WebAssembly) that can be used to provide embeded interactive applicaitons.
+These exports are [WASM applications](https://en.wikipedia.org/wiki/WebAssembly) that can be used to provide embeded interactive applications.
 
 Export the notebook with: `marimo export html-wasm ./marimo/hello_world.py -o ./docs/marimo-demo`
 
@@ -58,4 +58,4 @@ frameborder="0"
 
 ## In Summary
 
-If you use analyze data, use spreadsheets or Jupyter notes books then you ow it to yourself to have a look at [Marimo](marimo.io).
+If you use analyze data, use spreadsheets or Jupyter notes books then you ow it to yourself to have a look at [Marimo](https://marimo.io).

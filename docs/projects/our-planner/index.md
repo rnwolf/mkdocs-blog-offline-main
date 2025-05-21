@@ -5,7 +5,7 @@
 
 ## Introduction
 
-I have found it useful to pysical post-it notes and wall to make and update plans with a team.
+I have found it useful to physical post-it notes and a wall to make and update plans with a team.
 Nowadays we use online whiteboarding tools like Miro or Mural.
 These tools all make it difficult to move the dependant notes or tasks around and capture and update metadata on those notes/tasks.
 
