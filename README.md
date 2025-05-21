@@ -97,7 +97,15 @@ In the posthog-script.js file, you can add any JavaScript code you want to execu
 
 - Put info here on how to deploy site pages
   + github pages
+    - Enable github pages in repo settings
+    - Make sure you have a .nojekyll file in the root.
+    - See https://rnwolf.github.io/mkdocs-blog-offline-main/ when the github action runs successfully.
   + Cloudflare
+    - Make sure we have updated requirements.txt
+        - `uv pip compile pyproject.toml -o requirements.txt`
+    - Make sure we have recent version of node
+        - Node Version Switcher `nvs`
+    -
 
 ## Home page - Featured Articles
 

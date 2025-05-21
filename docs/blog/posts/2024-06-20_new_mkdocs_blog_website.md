@@ -180,7 +180,7 @@ See [](#my-list) for more details.
 
 #### Figure Sizing
 
-HTML should specify the size and positining of image.
+HTML should specify the size and positioning of image.
 
 ````md
 

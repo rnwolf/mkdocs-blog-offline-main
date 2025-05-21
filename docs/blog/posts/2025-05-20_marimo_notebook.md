@@ -36,11 +36,15 @@ These exports are [WASM applications](https://en.wikipedia.org/wiki/WebAssembly)
 
 Export the notebook with: `marimo export html-wasm ./marimo/hello_world.py -o ./docs/marimo-demo`
 
-Then load into an iframe in a MkDocs page:
+Then load into an iframe in a MkDocs page as follows:
+
+!!! Note
+
+    You must use the full url when this is published.
 
 ```html
 <iframe
-src="/marimo/marimo-demo/index.html?embed=true"
+src="https://www.rnwolf.net/marimo/marimo-demo/index.html?embed=true"
 width="100%"
 height="700"
 frameborder="0"
@@ -50,7 +54,7 @@ frameborder="0"
 Resulting in an app that can run in the browser:
 
 <iframe
-src="/marimo/marimo-demo/index.html?embed=true"
+src="https://www.rnwolf.net/marimo/marimo-demo/index.html?embed=true"
 width="100%"
 height="700"
 frameborder="0"
