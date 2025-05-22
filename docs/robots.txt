@@ -1,5 +1,8 @@
 User-agent: *
-Disallow:
+# Instruct all robots to stay away from your site
+# NOTE do not deploy with / to production site site
+# But deploy to pre-prod sites by default to stop them from being indexed.
+Disallow: /
 
 Sitemap: https://www.rnwolf.net/sitemap.xml
 Sitemap: https://rnwolf.net/sitemap.xml

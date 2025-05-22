@@ -95,6 +95,9 @@ In the posthog-script.js file, you can add any JavaScript code you want to execu
 
 ### Serve Your Site
 
+Note there is an adjustment required to the robots.txt file that is deployed to production.
+The default robots.txt prevents pre-prod sites from being indexed.
+
 - Put info here on how to deploy site pages
   + github pages
     - Enable github pages in repo settings
@@ -103,9 +106,7 @@ In the posthog-script.js file, you can add any JavaScript code you want to execu
   + Cloudflare
     - Make sure we have updated requirements.txt
         - `uv pip compile pyproject.toml -o requirements.txt`
-    - Make sure we have recent version of node
-        - Node Version Switcher `nvs`
-    -
+        - https://www.youtube.com/watch?v=7-HhLascLuM How to Host MKDocs on Cloudflare Pages
 
 ## Home page - Featured Articles
 
