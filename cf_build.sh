@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 # Use this script as build command in Cloudflare Pages
 mkdocs build
 ## Overwrite the default robots.txt file to ensure this site is indexed.
