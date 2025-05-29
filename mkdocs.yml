@@ -33,6 +33,9 @@ theme:
         accent: deep purple
 
 plugins:
+  - mermaid2:
+      #javascript: https://unpkg.com/mermaid@11.6.0/dist/mermaid.esm.min.mjs
+      javascript: https://127.0.0.1:8000/javascripts/mermaid.min.js
   - git-revision-date-localized:
       fallback_to_build_date: true
   - meta
@@ -76,6 +79,8 @@ extra:
       link: https://x.com/rnwolf
     - icon: fontawesome/brands/linkedin
       link: https://www.linkedin.com/in/rudigerwolf/
+    - icon: fontawesome/solid/rss
+      link: /feed_rss_updated.xml
   footer_links:
     - text: "Privacy Policy"
       href: "/privacy"
@@ -83,7 +88,7 @@ extra:
       href: "/security-policy"
     - text: "Copyright"
       href: "/copyright"
-    - text: "RSS"
+    - text: "RSS Feed by created date"
       href: "/feed_rss_created.xml"
 
 hooks:
@@ -99,7 +104,6 @@ markdown_extensions:
       generic: true
   - footnotes
   - pymdownx.details
-  - pymdownx.superfences
   - pymdownx.mark
   - attr_list
   - md_in_html
@@ -130,6 +134,7 @@ extra_css:
 
 extra_javascript:
   - javascripts/posthog-script.js
+  - javascripts/mermaid.min.js
 
 exclude_docs: |
   !.well-known

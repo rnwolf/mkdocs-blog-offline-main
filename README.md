@@ -33,6 +33,14 @@ Visit the local server (usually http://127.0.0.1:8000) to check content is as ex
 
 `uv run mkdocs build`
 
+## Build requirements.txt for cloudflare build
+
+If the python plugins have been updated:
+
+`uv pip compile pyproject.toml -o requirements.txt`
+
+Because Cloudflate build service looks for requirements.txt file during build phase.
+
 ## Check built assets.
 
 `uv run python -m http.server 8000 --directory ./site`
@@ -49,7 +57,7 @@ https://www.gravatar.com/avatar/27091eaf5027927e61e36987ab5f14e4?s=200
 ## RSS feed link url
 
 http://127.0.0.1:8000/feed_rss_created.xml
-
+http://127.0.0.1:8000/feed_rss_updated.xml
 
 ## PostHog Website analytics
 

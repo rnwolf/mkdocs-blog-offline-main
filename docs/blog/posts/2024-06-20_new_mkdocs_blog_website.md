@@ -3,7 +3,7 @@ title: "New website based on MkDocs"
 description: "Changed to new static website application, MkDocs, for personal blog."
 date:
   created: 2024-06-13T21:00:00Z
-  modified: 2025-05-21
+  modified: 2025-05-29
 categories: ["technology"]
 authors:
   - rnwolf
@@ -33,7 +33,7 @@ MkDocs is a good application for a personal blog site because:
 
 ## Content written in Markup
 
-Web pages are typically structured as HTML, which is a text markup format that is great for web browsers, but somewhat more difficult for humans to use. Consequently Astro also enables one to write content in Markdown. Markdown is a markup language that has gained popularity among writers, developers, and content creators.  Markdown simplifies web content formatting, making it accessible and portable.
+Web pages are typically structured as HTML, which is a text markup format that is great for web browsers, but somewhat more difficult for humans to use. Consequently MKDocs also enables one to write content in Markdown. Markdown is a markup language that has gained popularity among writers, developers, and content creators.  Markdown simplifies web content formatting, making it accessible and portable.
 
  1. Markdown simplifies formatting by providing an easy-to-use syntax. It’s suitable for creating websites, notes, presentations, documentation, and more.
  2. Markdown files can be opened in any text editor on any operating system.
