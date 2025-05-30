@@ -1,0 +1,7 @@
+name = "csp-worker-rnwolf-website"
+main = "index.js"
+compatibility_date = "2024-05-28"
+
+routes = [
+  { pattern = "www.rnwolf.net/*", zone_name = "rnwolf.net" }
+]

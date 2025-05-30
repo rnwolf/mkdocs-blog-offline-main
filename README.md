@@ -136,3 +136,43 @@ hide:
   - navigation
   - toc
 ```
+
+
+## Security improvements
+
+### Content Security Policy (CSP)
+
+A security feature called Content Security Policy (CSP) aids in the prevention of several kinds of attacks, including data injection and cross-site scripting (XSS) assaults. It does this by outlining which material sources are reliable and permitted to be loaded and used on a webpage. Even with its benefits, CSP might be dangerous if not used correctly.
+
+1. Go to https://domsignal.com/csp-test
+2. Enter website name: https://www.rnwolf.net
+3. Click on Test, Now you can see the CSP (Content-Security-Policy)
+
+When hosting a site on Cloudflare you can control the CSP policy via the `_headers` file.
+
+By adding `-Report-Only` you can iterate to a secure policy because you can publish site and check messages in the browser developer console.
+
+```
+Content-Security-Policy-Report-Only:
+default-src 'self';
+script-src 'self' https://eu-assets.i.posthog.com 'sha256-jO1y8K5qAbZ1U1+Kc8LYS6dK1sxvNDB3u2qkgZ5iCIk=';
+style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
+font-src 'self' https://fonts.gstatic.com;
+img-src 'self' https://www.gravatar.com data:;
+connect-src 'self' https://eu.i.posthog.com;
+frame-src 'self' https://www.youtube.com https://www.youtube-nocookie.com;
+child-src 'self' https://www.youtube.com https://www.youtube-nocookie.com;
+object-src 'none';
+base-uri 'self';
+form-action 'self';
+frame-ancestors 'none';
+upgrade-insecure-requests;
+```
+
+BUT because the posthog.js file modifies the browser DOM and add additional scripts we need to use a nonce for certidy these scripts as safe to use on our website.  We can do this with Cloudflare worker that will rewrite headers when served.
+
+To deploy whe cloudflare worker:
+
+export $(cat .env | xargs)  # or source .env
+cd workers-csp
+wrangler deploy --account-id $CF_ACCOUNT_ID
