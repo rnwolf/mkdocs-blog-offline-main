@@ -195,5 +195,5 @@ To deploy whe cloudflare worker:
 
 export $(cat .env | xargs)  # or source .env
 printenv | grep CLOUDFLARE
-cd workers-csp
+cd worker-csp
 wrangler deploy
