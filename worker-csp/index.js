@@ -1,43 +1,67 @@
 export default {
   async fetch(request, env, ctx) {
-    const nonce = crypto.randomUUID().replace(/-/g, '') // generate a nonce
+    try {
+      const response = await fetch(request)
+      const contentType = response.headers.get("content-type") || ""
 
-    const response = await fetch(request)
-    let contentType = response.headers.get('content-type') || ''
+      console.log(`Incoming request: ${request.url}`)
+      console.log(`Content-Type: ${contentType}`)
 
-    if (contentType.includes('text/html')) {
-      let html = await response.text()
+      if (contentType.includes("text/html")) {
+        let html = await response.text()
 
-      // Add nonce to all inline <script> tags
-      html = html.replace(/<script(?![^>]*src)([^>]*)>/g, `<script nonce="${nonce}"$1>`)
+        const nonce = crypto.randomUUID()
+        console.log(`Generated nonce: ${nonce}`)
 
-      // Inject CSP header with the nonce
-      const csp = [
-        `default-src 'self';`,
-        `script-src 'self' https://eu-assets.i.posthog.com 'nonce-${nonce}';`,
-        `style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;`,
-        `font-src 'self' https://fonts.gstatic.com;`,
-        `img-src 'self' https://www.gravatar.com data:;`,
-        `connect-src 'self' https://eu.i.posthog.com;`,
-        `frame-src 'self' https://www.youtube.com https://www.youtube-nocookie.com;`,
-        `child-src 'self' https://www.youtube.com https://www.youtube-nocookie.com;`,
-        `object-src 'none';`,
-        `base-uri 'self';`,
-        `form-action 'self';`,
-        `frame-ancestors 'none';`,
-        `upgrade-insecure-requests;`
-      ].join(' ')
+        // Inject nonce into <script> tags
+        html = html.replace(
+          /<script(\s[^>]*?)?>/gi,
+          (match) => {
+            if (match.includes("nonce=")) return match
+            return match.replace("<script", `<script nonce="${nonce}"`)
+          }
+        )
 
-      return new Response(html, {
-        status: response.status,
-        headers: {
-          'Content-Type': contentType,
-          'Content-Security-Policy': csp,
-        },
-      })
+        // Inject <meta> tag with nonce for debug visibility
+        html = html.replace(
+          /<head[^>]*>/i,
+          (match) => `${match}\n  <meta name="csp-nonce" content="${nonce}">`
+        )
+
+        // Build full custom CSP with dynamic nonce
+        const csp = [
+          `default-src 'self';`,
+          `script-src 'self' https://eu-assets.i.posthog.com https://challenges.cloudflare.com 'nonce-${nonce}';`,
+          `style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;`,
+          `font-src 'self' https://fonts.gstatic.com;`,
+          `img-src 'self' https://www.gravatar.com data:;`,
+          `connect-src 'self' https://eu.i.posthog.com https://challenges.cloudflare.com https://api.rnwolf.net;`,
+          `frame-src 'self' https://www.youtube.com https://www.youtube-nocookie.com https://challenges.cloudflare.com;`,
+          `child-src 'self' https://www.youtube.com https://www.youtube-nocookie.com;`,
+          `object-src 'none';`,
+          `base-uri 'self';`,
+          `form-action 'self';`,
+          `frame-ancestors 'none';`,
+          `upgrade-insecure-requests;`
+        ].join(' ')
+
+        const headers = new Headers(response.headers)
+        headers.set("content-security-policy", csp)
+        headers.set("content-type", contentType)
+
+        console.log("Injected CSP:")
+        console.log(csp)
+
+        return new Response(html, {
+          status: response.status,
+          headers,
+        })
+      }
+
+      return response
+    } catch (err) {
+      console.error("Worker error:", err)
+      return new Response("Internal Worker error", { status: 500 })
     }
-
-    // For non-HTML content, return unchanged
-    return response
-  }
+  },
 }

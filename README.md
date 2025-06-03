@@ -101,6 +101,26 @@ In the posthog-script.js file, you can add any JavaScript code you want to execu
 </script>
 ```
 
+### 4 Posthog.js needs to be secured with CSP
+
+As this has to be secured with nonce's we need Cloudflare worker to dynamically apply nonce.
+The scripts with the dynamically generated nonce are added to the list of allowed Javascript sources.
+
+This requires one to deploy workers to cloudflare.
+
+Create .env file with the following:
+CLOUDFLARE_API_TOKEN=
+CLOUDFLARE_ACCOUNT_ID=
+
+For local deployment
+
+```
+export $(cat .env | xargs)  # or source .env
+printenv | grep CLOUDFLARE
+cd workers-csp
+wrangler deploy
+```
+
 ### Serve Your Site
 
 Note there is an adjustment required to the robots.txt file that is deployed to production.
@@ -169,10 +189,11 @@ frame-ancestors 'none';
 upgrade-insecure-requests;
 ```
 
-BUT because the posthog.js file modifies the browser DOM and add additional scripts we need to use a nonce for certidy these scripts as safe to use on our website.  We can do this with Cloudflare worker that will rewrite headers when served.
+BUT because the posthog.js file modifies the browser DOM and add additional scripts we need to use a nonce for certify these scripts as safe to use on our website.  We can do this with Cloudflare worker that will rewrite headers when served.
 
 To deploy whe cloudflare worker:
 
 export $(cat .env | xargs)  # or source .env
+printenv | grep CLOUDFLARE
 cd workers-csp
-wrangler deploy --account-id $CF_ACCOUNT_ID
+wrangler deploy
