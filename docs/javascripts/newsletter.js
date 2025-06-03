@@ -121,42 +121,48 @@ class NewsletterForm {
     return null;
   }
 
-  async submitSubscription(email, turnstileToken) {
-    this.setSubmittingState(true);
+async submitSubscription(email, turnstileToken) {
+  this.setSubmittingState(true);
 
-    try {
-      const response = await fetch(this.config.apiUrl, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          email: email,
-          turnstileToken: turnstileToken
-        })
-      });
+  try {
+    const response = await fetch(this.config.apiUrl, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email: email, turnstileToken: turnstileToken })
+    });
 
-      const result = await response.json();
+    const result = await response.json();
 
-      if (result.success) {
-        this.showMessage(result.message, 'success');
-        this.form.reset();
-        this.resetTurnstile();
-      } else {
-        this.showMessage(result.message, 'error');
-        if (result.troubleshootingUrl) {
-          this.showTroubleshootingLink(result.troubleshootingUrl);
-        }
-        this.resetTurnstile();
+    if (result.success) {
+      // Show brief success message then redirect
+      this.showMessage('✅ Success! Redirecting...', 'success');
+
+      // Optional: Store email in sessionStorage for success page personalization
+      if (typeof(Storage) !== "undefined") {
+        sessionStorage.setItem('newsletter_email', email);
+        sessionStorage.setItem('newsletter_subscribed_at', new Date().toISOString());
       }
-    } catch (error) {
-      console.error('Subscription error:', error);
-      this.showMessage('Network error. Please check your connection and try again.', 'error');
+
+      // Redirect to success page after short delay
+      setTimeout(() => {
+        window.location.href = 'https://www.rnwolf.net/newsletter_next/';
+      }, 1000);
+
+    } else {
+      this.showMessage(result.message, 'error');
+      if (result.troubleshootingUrl) {
+        this.showTroubleshootingLink(result.troubleshootingUrl);
+      }
       this.resetTurnstile();
-    } finally {
-      this.setSubmittingState(false);
     }
+  } catch (error) {
+    console.error('Subscription error:', error);
+    this.showMessage('Network error. Please check your connection and try again.', 'error');
+    this.resetTurnstile();
+  } finally {
+    this.setSubmittingState(false);
   }
+}
 
   setSubmittingState(submitting) {
     this.isSubmitting = submitting;
