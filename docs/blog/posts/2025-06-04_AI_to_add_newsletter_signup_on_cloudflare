@@ -1,0 +1,53 @@
+---
+title: "New website newsletter sign-up"
+description: "How I added a news letter sign-up form to my static website blog using Claude.AI."
+date:
+  created: 2024-06-04T11:00:00Z
+categories: ["technology"]
+authors:
+  - rnwolf
+tags: ["mkdocs", "website", "AI", "Cloudflare", "newsletter"]
+draft: true
+slug: new_newsletter_sign_up_via_cloudflare_developed_with_claude_ai
+---
+
+# New Cloudflare Worker for Newsletter Sign-Up co-developed with Claude AI
+
+I recently added a newsletter sign-up form to my static website blog using Cloudflare Workers co-developed with Claude.ai.
+The process was straightforward, allowing me to implement a feature in a technology that I don't have a sound understanding of.
+
+## Context
+
+Artifical Intelligence (AI) is the new **Hotness** in the tech world and its seems set to have a profound impact on many industries. In the last decade I have worked on enterprise __digital transformation__ assignments.
+In order to stay relevant, I need to keep up with the latest trends and technologies.
+Last week (May 2025) Dario Amodei — CEO of Anthropic, a big player in the field of artificial intelligence [posted](https://www.axios.com/2025/05/28/ai-jobs-white-collar-unemployment-anthropic) a warning for all of us.
+
+> :memo: (May 2025) Dario Amodei — CEO of Anthropic
+AI could wipe out half of all entry-level white-collar jobs — and spike unemployment to 10-20% in the next one to five years.
+
+To remain relevant in the jobs market I need to keep up with what AI can do and how it can help.
+
+I read a lot and shared references to the stuff I thought was interesting. Over the years I have frequently been asked if I had an email newsletter so that friends and colleagues could subscribe.
+
+## The Problem
+
+To keep my technology stack simple, I have a static website blog hosted on Cloudflare Pages.
+Adding a newsletter sign-up form to a static website is not straightforward.
+I could use a third-party service, but I wanted to keep the solution simple, secure and self-hosted.
+
+I decided to use a Cloudflare Worker to handle the newsletter sign-up form submission.
+But I had never written a Cloudflare Worker before in Typescript, the preferred language for Cloudflare Workers.
+
+## The Solution
+
+Use Claude AI to help me write the Cloudflare Worker code.
+While I don't get paid professionally to write code, one of my superpowers has been to use code to automate and help with data analysis for the teams and products I have been managing.
+I do have a lot of experience in software development and have been coding since the 1980s. I did study computer science at university as part of my engineering degree.
+
+## The Implementation
+
+To keep things simple I used _Claude.ai_ the browser interface to interact with Claude 4. Not _Claude Code_ which is a separate product that is designed to integrate with an IDE.
+
+From my readings I learnt that to get the best results from AI you need to provide it with a lot of context.
+
+1.  I started by writing a prompt that described the problem I was trying to solve.
