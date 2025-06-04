@@ -1,6 +1,6 @@
 /**
- * Newsletter Subscription Form Handler
- * Integrates with Cloudflare Turnstile and newsletter API
+ * Newsletter Subscription Form Handler with Lazy-Loaded Turnstile
+ * Only loads Turnstile when user interacts with the form
  */
 
 class NewsletterForm {
@@ -8,13 +8,15 @@ class NewsletterForm {
     this.form = document.getElementById(formId);
     this.config = {
       apiUrl: config.apiUrl || 'https://api.rnwolf.net/v1/newsletter/subscribe',
-      siteKey: config.siteKey || '0x4AAAAAABf2ybtKSU3JJ7bC', // Replace with actual site key
+      siteKey: config.siteKey || '0x4AAAAAABf2ybtKSU3JJ7bC', // Replace with your actual site key
       theme: config.theme || 'auto',
       ...config
     };
 
     this.turnstileWidgetId = null;
     this.isSubmitting = false;
+    this.turnstileLoaded = false;
+    this.turnstileScriptLoaded = false;
 
     if (this.form) {
       this.init();
@@ -22,51 +24,99 @@ class NewsletterForm {
   }
 
   init() {
-    // Wait for Turnstile to load
-    this.waitForTurnstile().then(() => {
-      this.setupTurnstile();
-      this.setupFormHandler();
-    });
+    this.setupFormHandler();
+    this.setupLazyTurnstile();
   }
 
-  async waitForTurnstile() {
-    return new Promise((resolve) => {
-      if (window.turnstile) {
-        resolve();
-        return;
-      }
+  setupLazyTurnstile() {
+    const emailInput = this.form.querySelector('input[name="email"]');
+    const turnstileContainer = this.form.querySelector('.turnstile-container');
 
-      const checkTurnstile = () => {
-        if (window.turnstile) {
-          resolve();
-        } else {
-          setTimeout(checkTurnstile, 100);
-        }
+    if (!emailInput || !turnstileContainer) return;
+
+    // Show a loading message in the Turnstile container
+    turnstileContainer.innerHTML = '<p style="text-align: center; color: #666; font-size: 0.9em;">Security verification will load when you start typing...</p>';
+
+    // Load Turnstile when user interacts with the form
+    const loadTurnstile = () => {
+      if (!this.turnstileScriptLoaded) {
+        turnstileContainer.innerHTML = '<p style="text-align: center; color: #666; font-size: 0.9em;">Loading security verification...</p>';
+        this.loadTurnstileScript();
+        emailInput.removeEventListener('focus', loadTurnstile);
+        emailInput.removeEventListener('input', loadTurnstile);
+      }
+    };
+
+    // Load on first interaction
+    emailInput.addEventListener('focus', loadTurnstile, { once: true });
+    emailInput.addEventListener('input', loadTurnstile, { once: true });
+  }
+
+  loadTurnstileScript() {
+    if (this.turnstileScriptLoaded) return;
+
+    this.turnstileScriptLoaded = true;
+    console.log('Loading Turnstile script...');
+
+    // Only load Turnstile script if not already loaded
+    if (!window.turnstile) {
+      const script = document.createElement('script');
+      script.src = 'https://challenges.cloudflare.com/turnstile/v0/api.js';
+      script.async = true;
+      script.onload = () => {
+        console.log('Turnstile script loaded successfully');
+        this.setupTurnstile();
       };
-      checkTurnstile();
-    });
+      script.onerror = () => {
+        console.error('Failed to load Turnstile script');
+        this.showTurnstileError();
+      };
+      document.head.appendChild(script);
+    } else {
+      console.log('Turnstile already available');
+      this.setupTurnstile();
+    }
   }
 
   setupTurnstile() {
     const turnstileContainer = this.form.querySelector('.turnstile-container');
-    if (!turnstileContainer) return;
+    if (!turnstileContainer || this.turnstileLoaded) return;
 
-    this.turnstileWidgetId = window.turnstile.render(turnstileContainer, {
-      sitekey: this.config.siteKey,
-      theme: this.config.theme,
-      callback: (token) => {
-        console.log('Turnstile verification successful');
-        this.enableSubmitButton();
-      },
-      'error-callback': () => {
-        console.error('Turnstile verification failed');
-        this.showMessage('Security verification failed. Please try again.', 'error');
-      },
-      'expired-callback': () => {
-        console.log('Turnstile token expired');
-        this.disableSubmitButton();
-      }
-    });
+    this.turnstileLoaded = true;
+    console.log('Setting up Turnstile widget...');
+
+    // Clear loading message
+    turnstileContainer.innerHTML = '';
+
+    try {
+      this.turnstileWidgetId = window.turnstile.render(turnstileContainer, {
+        sitekey: this.config.siteKey,
+        theme: this.config.theme,
+        callback: (token) => {
+          console.log('Turnstile verification successful');
+          this.enableSubmitButton();
+        },
+        'error-callback': () => {
+          console.error('Turnstile verification failed');
+          this.showMessage('Security verification failed. Please try again.', 'error');
+        },
+        'expired-callback': () => {
+          console.log('Turnstile token expired');
+          this.disableSubmitButton();
+        }
+      });
+      console.log('Turnstile widget created with ID:', this.turnstileWidgetId);
+    } catch (error) {
+      console.error('Error setting up Turnstile:', error);
+      this.showTurnstileError();
+    }
+  }
+
+  showTurnstileError() {
+    const turnstileContainer = this.form.querySelector('.turnstile-container');
+    if (turnstileContainer) {
+      turnstileContainer.innerHTML = '<p style="color: #d32f2f; text-align: center; font-size: 0.9em;">Security verification failed to load. Please try refreshing the page.</p>';
+    }
   }
 
   setupFormHandler() {
@@ -104,6 +154,12 @@ class NewsletterForm {
       return;
     }
 
+    // Ensure Turnstile is loaded before checking token
+    if (!this.turnstileLoaded) {
+      this.showMessage('Please wait for security verification to load, then try again.', 'error');
+      return;
+    }
+
     // Get Turnstile token
     const turnstileToken = this.getTurnstileToken();
     if (!turnstileToken) {
@@ -115,54 +171,59 @@ class NewsletterForm {
   }
 
   getTurnstileToken() {
-    if (this.turnstileWidgetId !== null) {
+    if (this.turnstileWidgetId !== null && window.turnstile) {
       return window.turnstile.getResponse(this.turnstileWidgetId);
     }
     return null;
   }
 
-async submitSubscription(email, turnstileToken) {
-  this.setSubmittingState(true);
+  async submitSubscription(email, turnstileToken) {
+    this.setSubmittingState(true);
 
-  try {
-    const response = await fetch(this.config.apiUrl, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ email: email, turnstileToken: turnstileToken })
-    });
+    try {
+      const response = await fetch(this.config.apiUrl, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          email: email,
+          turnstileToken: turnstileToken
+        })
+      });
 
-    const result = await response.json();
+      const result = await response.json();
 
-    if (result.success) {
-      // Show brief success message then redirect
-      this.showMessage('✅ Success! Redirecting...', 'success');
+      if (result.success) {
+        // Show brief success message then redirect
+        this.showMessage('✅ Success! Redirecting...', 'success');
 
-      // Optional: Store email in sessionStorage for success page personalization
-      if (typeof(Storage) !== "undefined") {
-        sessionStorage.setItem('newsletter_email', email);
-        sessionStorage.setItem('newsletter_subscribed_at', new Date().toISOString());
+        // Optional: Store email in sessionStorage for success page personalization
+        if (typeof(Storage) !== "undefined") {
+          sessionStorage.setItem('newsletter_email', email);
+          sessionStorage.setItem('newsletter_subscribed_at', new Date().toISOString());
+        }
+
+        // Redirect to success page after short delay
+        setTimeout(() => {
+          window.location.href = 'https://www.rnwolf.net/newsletter_next/';
+        }, 1000);
+
+      } else {
+        this.showMessage(result.message, 'error');
+        if (result.troubleshootingUrl) {
+          this.showTroubleshootingLink(result.troubleshootingUrl);
+        }
+        this.resetTurnstile();
       }
-
-      // Redirect to success page after short delay
-      setTimeout(() => {
-        window.location.href = 'https://www.rnwolf.net/newsletter_next/';
-      }, 1000);
-
-    } else {
-      this.showMessage(result.message, 'error');
-      if (result.troubleshootingUrl) {
-        this.showTroubleshootingLink(result.troubleshootingUrl);
-      }
+    } catch (error) {
+      console.error('Subscription error:', error);
+      this.showMessage('Network error. Please check your connection and try again.', 'error');
       this.resetTurnstile();
+    } finally {
+      this.setSubmittingState(false);
     }
-  } catch (error) {
-    console.error('Subscription error:', error);
-    this.showMessage('Network error. Please check your connection and try again.', 'error');
-    this.resetTurnstile();
-  } finally {
-    this.setSubmittingState(false);
   }
-}
 
   setSubmittingState(submitting) {
     this.isSubmitting = submitting;
@@ -189,7 +250,7 @@ async submitSubscription(email, turnstileToken) {
   }
 
   resetTurnstile() {
-    if (this.turnstileWidgetId !== null) {
+    if (this.turnstileWidgetId !== null && window.turnstile) {
       window.turnstile.reset(this.turnstileWidgetId);
     }
   }
@@ -249,7 +310,7 @@ document.addEventListener('DOMContentLoaded', function() {
   forms.forEach((form, index) => {
     new NewsletterForm(form.id || `newsletter-form-${index}`, {
       apiUrl: 'https://api.rnwolf.net/v1/newsletter/subscribe',
-      siteKey: '0x4AAAAAABf2ybtKSU3JJ7bC' // Replace with actual site key
+      siteKey: '0x4AAAAAABf2ybtKSU3JJ7bC' // Replace with your actual site key
     });
   });
 });

@@ -139,7 +139,6 @@ extra_javascript:
   - javascripts/posthog-script.js
   - javascripts/mermaid.min.js
   - javascripts/newsletter.js
-  - https://challenges.cloudflare.com/turnstile/v0/api.js
 
 exclude_docs: |
   !.well-known
