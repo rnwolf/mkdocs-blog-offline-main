@@ -33,7 +33,7 @@ export default {
           `default-src 'self';`,
           `script-src 'self' https://eu-assets.i.posthog.com https://challenges.cloudflare.com 'nonce-${nonce}';`,
           `style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;`,
-          `font-src 'self' https://fonts.gstatic.com; data:;`,
+          `font-src 'self' https://fonts.gstatic.com data:;`,
           `img-src 'self' https://www.gravatar.com blob: data:;`,
           `connect-src 'self' https://eu.i.posthog.com https://challenges.cloudflare.com https://api.rnwolf.net;`,
           `frame-src 'self' https://www.youtube.com https://www.youtube-nocookie.com https://challenges.cloudflare.com;`,
