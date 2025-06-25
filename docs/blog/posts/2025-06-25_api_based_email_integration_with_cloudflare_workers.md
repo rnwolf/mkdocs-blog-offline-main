@@ -16,13 +16,14 @@ slug: sending_emails_from_cloudflare_workers
 I currently have dozens of bots signing up to my newsletter, and it's becoming increasingly difficult to manage the influx of fake accounts. I need a solution that can help me filter out these bots and ensure that only genuine users are able to subscribe.
 
 In the process of building the newsletter sign-up, I went down an unexpected rabbit hole involving modern email protocols.
+<!-- more -->
 
 #  Initial Requirements (Cloudflare Workers Turnstile with double opt-in via email)
 
 In my quest to learn more about how AI can be used in web development, I decided to use some of the new tools like Claude.ai and ChatGPT to develop what seemed like a simple application.  My currently newsletter subscription form is powered by a simple GCP Cloud Function.
 
 I decided that as I use Cloudflare Workers to host my current static website and provide some protection via "Cloudflare workers" it would be a good idea to use Workers for this experiment as well.
-<!-- more -->
+
 "Cloudflare Workers" offer several benefits, including:
 
 - Serverless Simplicity - You don't need to manage servers, handle scaling, or worry about infrastructure.
