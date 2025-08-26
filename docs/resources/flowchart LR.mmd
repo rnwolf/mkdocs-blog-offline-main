@@ -1,0 +1,46 @@
+flowchart LR
+    subgraph Zone1 ["Zone 1"]
+        direction LR
+        A1["1"]
+        A2["2"]
+        A3["3"]
+    end
+
+    subgraph Zone2 ["Zone 2"]
+        direction LR
+        B1["4"]
+        B2["5"]
+        B3["6"]
+    end
+
+    subgraph Zone3 ["Zone 3"]
+        direction LR
+        C1["7"]
+        C2["8"]
+        C3["9"]
+    end
+
+    %% Style subgraphs to remove gaps
+    classDef subgraphStyle fill:transparent,stroke:transparent,margin:0px
+
+    %% Force horizontal alignment
+    A1 ~~~ A2 ~~~ A3 ~~~ B1 ~~~ B2 ~~~ B3 ~~~ C1 ~~~ C2 ~~~ C3
+
+    %% Styling
+    classDef redZone fill:#ff6b6b,stroke:#333,stroke-width:2px,color:#fff
+    classDef yellowZone fill:#ffd93d,stroke:#333,stroke-width:2px,color:#000
+    classDef greenZone fill:#6bcf7f,stroke:#333,stroke-width:2px,color:#fff
+
+    class A1,A2,A3 redZone
+    class B1,B2,B3 yellowZone
+    class C1,C2,C3 greenZone
+
+    %% Hide the invisible links
+    linkStyle 0 stroke-width:0px
+    linkStyle 1 stroke-width:0px
+    linkStyle 2 stroke-width:0px
+    linkStyle 3 stroke-width:0px
+    linkStyle 4 stroke-width:0px
+    linkStyle 5 stroke-width:0px
+    linkStyle 6 stroke-width:0px
+    linkStyle 7 stroke-width:0px

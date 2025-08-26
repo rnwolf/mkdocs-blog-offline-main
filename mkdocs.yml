@@ -126,6 +126,29 @@ nav:
       - blog/index.md
       - Tags: tags.md
   - About: about.md
+  - Resources:
+      - resources/index.md
+      - Agile: resources/agile.md
+      - AI: resources/ai.md
+      - Books: resources/books.md
+      - CCPM: resources/ccpm.md
+      - DBR: resources/dbr.md
+      - Delivery Management: resources/dm.md
+      - Health: resources/health.md
+      - Podcasts: resources/podcasts.md
+      - Product Management: resources/pm.md
+      - Personal Finance: resources/personal-finance.md
+      - Programming: resources/programming.md
+      - Python: resources/python.md
+      - South Africa: resources/south-africa.md
+      - Tameflow: resources/tameflow.md
+      - Time Management: resources/time-management.md
+      - TOC: resources/toc.md
+      - Tools: resources/tools.md
+      - United Kingdom: resources/united-kingdom.md
+      - Workflow Management: resources/workflow-management.md
+      - Value: resources/value.md
+      - YouTube: resources/youtube.md
   - Contact: contact.md
   - Projects:
       - projects/our-planner/index.md

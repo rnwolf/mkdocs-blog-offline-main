@@ -1,5 +1,5 @@
 ---
-title: "Sending Emails from Cloudflare Workers"
+title: "Sending Emails from Cloudflare Workers with MailChannels and JMAP"
 description: "How I integrated email into my website with Cloudflare workers"
 date:
   created: 2025-06-25T11:00:00Z
