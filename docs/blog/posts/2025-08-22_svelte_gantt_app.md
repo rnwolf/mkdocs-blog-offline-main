@@ -7,7 +7,7 @@ categories: ["technology","performance"]
 authors:
   - rnwolf
 tags: ["website", "svelte", "gantt", "planning", "communications", "CCPM"]
-draft: true
+draft: false
 slug: free_gantt_utility
 ---
 
@@ -37,7 +37,7 @@ The goal wasn’t to replace enterprise project management systems, but to creat
 
 ### Why Gantt Charts Get a Bad Reputation
 
-It’s true: many agile practitioners criticize Gantt charts as “too waterfall.” That critique often comes from bad experiences where Gantts were used to drive unrealistic promises.
+It’s true: many agile practitioners criticize Gantt charts as "too waterfall." That critique often comes from bad experiences where Gantts were used to drive unrealistic promises.
 
 Here’s the real issue:
 
@@ -73,7 +73,7 @@ This is wasted effort that adds no value to delivery.
 
 With this tool, you get a smoother experience:
 
-- **Easy to use GUI to drag tasks into shape** -> Define tasks and add additional task meta-data.
+- **Easy to use GUI to drag tasks into shape** -> Define tasks, create dependencies and add additional task meta-data.
 - **Zoom in/out and all about** -> The chart just renders, no endless fiddling with shapes. Snap a screen shot and add it to your communications.
 - **Download and upload project plan as a simple json text file** -> Download/Upload simple to understand files that define tasks and links.
 
@@ -83,13 +83,13 @@ With this tool, you get a smoother experience:
 
 When you stop spending hours reformatting PowerPoint slides, you free up time to focus on what actually matters: **co-creating realistic plans with your team and keeping stakeholders aligned as things change.**
 
-Because plans *will* change — and when they do, your chart should adjust quickly without collapsing under its own formatting. That’s why a lightweight, browser-based viewer like this makes such a difference.
+Because plans *will* change — and when they do, your chart should adjust quickly without collapsing under its own formatting. That’s why a lightweight, browser-based viewer, with text based data that can ver version controlled like this makes such a difference to the planning process.
 
 ***
 
 ### Final Thoughts
 
-Whether you work in agile, hybrid, or traditional delivery, visual timelines matter. They aren’t about predicting the future — they’re about **creating a shared understanding** of what’s possible and how work hangs together.
+Whether you work in agile, hybrid, or traditional delivery, visual timelines matter. They aren’t about predicting the future — they’re about **creating a shared understanding** of what the future could look like and how work that future hangs together.
 
 That’s why I built *Simple Web Gantt Viewer* — for myself first, and now for anyone who’s sick of building brittle charts in Excel or PowerPoint.
 
