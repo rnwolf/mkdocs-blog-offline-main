@@ -114,3 +114,73 @@ Most major banks (Barclays, NatWest, Capital One, Aqua, etc.) offer online “ch
 - [MoneySavingExpert Credit Club (uses Experian data)](https://www.moneysavingexpert.com/creditclub/)
 - [ClearScore (uses Equifax data)](https://www.clearscore.com/)
 - [Credit Karma (uses TransUnion data)](https://creditkarma.co.uk/)
+
+
+### How are credit scores are calculated?
+
+In the UK, there isn’t one single "official" score. Instead, the three main Credit Reference Agencies (CRAs) — **Experian, Equifax, and TransUnion** each use their own scoring models. Lenders don't see your "score" directly, they see your underlying credit history and then apply their own criteria.
+
+Scoring is built around six factors, with approximate weights in brackets:
+
+#### 1. Payment History (≈ 35%)
+
+ - **What it is**: Record of whether you’ve paid credit accounts on time (credit cards, loans, mortgages, utilities, mobile phone bills if reported).
+ - **Why it matters**: It shows lenders you are reliable. Even one missed payment can damage your score significantly.
+
+##### **How to improve**
+
+ - Set up **direct debits** or reminders to always pay at least the minimum.
+ - Catch up on overdue accounts — defaults remain on file for 6 years, but showing recent on-time payments still helps.
+
+####  2. Credit Utilization (≈ 30%)
+
+ - **What it is**: How much of your available credit you are using.
+
+    Example: £200 balance on a £1,000 credit card = 20% utilization.
+
+ - **Why it matters**: Lower utilization suggests you manage credit responsibly.
+ - **Best practice**: Keep utilization below **30%** (some experts suggest under 10% for the best scores).
+
+##### **How to improve**
+
+ - Pay down balances.
+ - Ask for a higher credit limit (if affordable).
+ - Spread balances across multiple accounts.
+
+
+#### 3. Length of Credit History (≈ 15%)
+
+ - **What it is**: How long your accounts have been open and the average account age.
+ - **Why it matters**: Longer history = more evidence of how you manage credit over time.
+
+##### **How to improve**
+
+  - Keep older accounts open, even if unused (closing them reduces your average age).
+  - Be patient — this factor grows naturally with time.
+
+#### 4. Credit Mix (≈ 10%)
+
+ - **What it is**: Variety of credit types (credit cards, personal loans, car finance, mortgage, store cards).
+ - **Why it matters**: Lenders like to see you can handle different kinds of credit.
+
+##### **How to improve**
+
+ - You don’t need every type, but having both **revolving credit** (like a card) and **installment credit** (like a loan) helps.
+ - Don’t take out credit just for the sake of “mix”; focus on what’s genuinely useful.
+
+#### 5. New Credit / Hard Searches (≈ 10%)
+
+ - **What it is**: Frequency of applications and newly opened accounts.
+ - **Why it matters**: Many applications in a short period can suggest financial stress. Each **hard search** is recorded on your file for about 12 months.
+
+##### **How to improve**
+
+ - Use **soft eligibility checks** before applying.
+ - Space out applications.
+ - Only apply for credit you’re confident of being accepted for.
+
+#### 6. UK-specific factors
+
+ - **Electoral roll**: Being registered at your current address boosts scores.
+ - **Negative markers**: Defaults, CCJs (County Court Judgments), IVAs (Individual Voluntary Arrangement), or bankruptcies are severe and stay on your report up to 6 years.
+ - **Financial associations**: Joint accounts or loans mean another person’s credit behaviour can affect yours.

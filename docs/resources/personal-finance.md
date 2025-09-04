@@ -481,28 +481,7 @@ Mastering these foundational habits means your money works for you—not the oth
 
 ## 3. **Credit and Credit Scores**
 
-### **Understanding Credit**
-- What credit is and why it matters
-- How credit differs from debit/cash transactions
-- The role of credit in major purchases (homes, cars)
-
-### **Credit Scores and Credit Reports**
-- How credit scores are calculated (payment history, utilization, length of history, credit mix, new credit)
-- Major credit reference agencies in the UK (Experian, Equifax, TransUnion)
-- How to check your credit report for free
-- Understanding what impacts your score positively and negatively
-
-### **Building Credit History**
-- Starting with no credit history
-- Responsible use of first credit products
-- The importance of on-time payments
-- Keeping credit utilization low (under 30%, ideally under 10%)
-
-### **Managing Credit Responsibly**
-- Setting up automatic payments to avoid missed payments
-- Understanding credit limits and not maxing out cards
-- The impact of closing old accounts vs. keeping them open
-- How to improve a damaged credit score
+[Why you need a plan to build your Credit Score.](../blog/posts/2025-08-30_credit_score.md)
 
 ## 4. **Credit Cards**
 
@@ -766,13 +745,22 @@ Professional Managers Can’t Do It Reliably: Even most professional fund manage
 - **Lower stress means greater persistence**—which is far more important than “chasing returns” that rarely materialize. Ignore short-term noise, news, or predictions.
 - **Invest regularly** (use dollar-cost averaging). Trying to time the market almost always leads to “buying high and selling low” due to emotions, missed opportunities, and trading costs—exactly the opposite of what you want.
 
-#### **6. Integrate These Points into the Diagram/Guide**
+#### **6. On line training course**
 
-- Add **“Costs of Investing”** and **“Investment Approach (active vs passive)”** as subtopics or even nodes in your textual guide and—if you prefer—directly in the CLD.
-- Emphasize in tooltips/examples:
+Index Funds course for Beginners https://financialinterest.com/index-funds-for-beginners/
 
   - “Most investors are best off choosing passive, low-cost index funds or ETFs, and ignoring noise.”
   - “Overpaying for active management is a hidden drag that may cost you tens or hundreds of thousands in lost returns by retirement.”
+
+#### **7. Popular Index Funds**
+
+[Index fund Cheat Sheet](https://docs.google.com/spreadsheets/d/1RwSmd-EvLukn2fcFuQwVXeB8BYwqqzTqKJI5EA3V5Zc/)
+
+
+[Index Fund Glossary](https://docs.google.com/spreadsheets/d/1RwSmd-EvLukn2fcFuQwVXeB8BYwqqzTqKJI5EA3V5Zc/edit?gid=1585505808#gid=1585505808)
+
+
+[Best Index Funds for UK Investors](https://www.youtube.com/watch?v=jJgpjalk1N0)
 
 #### **In summary:**
 
