@@ -349,9 +349,9 @@ Design Sprints represent a significant bridge between design thinking and Agile 
 - **Attribution controversies** - Debates over Anderson's role vs. collaborative development at Corbis
 - **Alternative to Scrum** - Positioned for teams struggling with traditional Agile adoption
 
- ### Background
+### Background
 
- The Scrum Community initially resisted Kanban.
+The Scrum Community initially resisted Kanban.
 
 **Key Evidence from Research:**
 
@@ -415,12 +415,12 @@ David's timing was also perfect - arriving just as Agile was gaining mainstream 
 
 ## Continuous Integration(CI) & DevOps Evolution
 
-    - CruiseControl was the first dedicated CI server by ThoughtWorks/Matthew Foemmel
-    - Martin Fowler's role in advocating and popularizing CI practices
-    - The dramatic acceleration of feedback loops (from weeks to minutes)
-    - How CruiseControl spawned the CI server ecosystem (Hudson/Jenkins, TeamCity, etc.)
-    - CI is the foundation of the DevOps movement
-    - Evolved into full deployment pipelines
+- CruiseControl was the first dedicated CI server by ThoughtWorks/Matthew Foemmel
+- Martin Fowler's role in advocating and popularizing CI practices
+- The dramatic acceleration of feedback loops (from weeks to minutes)
+- How CruiseControl spawned the CI server ecosystem (Hudson/Jenkins, TeamCity, etc.)
+- CI is the foundation of the DevOps movement
+- Evolved into full deployment pipelines
 
 ### Key Impact Points: CruiseControl was truly revolutionary because it:
 
@@ -541,6 +541,7 @@ This represents a fascinating evolution - from the original Agile rebellion agai
 ---
 
 ## TameFlow Approach
+
 - **Steve Tendon's innovation** - Theory of Constraints applied to knowledge work management
 - **Four flows framework** - Operational, financial, informational, and psychological flows
 - **PEST environments** - Managing multiple Projects, Events, Stakeholders, Teams
@@ -573,6 +574,7 @@ PEST environments - Addresses complex modern environments with multiple Projects
 ---
 
 ## Lean Startup & MVP Methodology
+
 - **Frank Robinson's origin** - Coined "Minimum Viable Product" at SyncDev (2001)
 - **Original definition** - "Product with maximum ROI divided by risk"
 - **Synchronous development** - Parallel product and customer development approach
@@ -794,6 +796,7 @@ These additions show how Agile continues to evolve and challenge conventional wi
 - Improving facilitation skills for virtual ceremonies
 
 ### AI Era Observations
+
 - **The Constraint Hasn't Moved**: AI accelerates coding but bottlenecks remain in requirements, architecture, integration, and business understanding
 - **Experience Premium**: Senior developers become more valuable for directing AI, not less
 - **Quality Gate Challenges**: Fast AI-generated code requires more sophisticated review and testing processes
@@ -802,4 +805,4 @@ These additions show how Agile continues to evolve and challenge conventional wi
 
 ---
 
-*This collection continues to evolve as Agile practices mature and new challenges emerge. Last updated: July 2025*
+*This collection continues to evolve as Agile practices mature and new challenges emerge. Last updated: Sept 2025*

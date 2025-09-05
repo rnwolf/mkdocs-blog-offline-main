@@ -34,3 +34,15 @@ What percentage of your regular responsibilities are AI-augmented?
 ## Context is essential for you AI Work
 
 Loading your AI agent with information for the work is essential.
+
+
+# References to incorporate - WIP
+
+
+[See interview recommendations](../blog/posts/2025-09-04_which_problems_are_good_for_ai_cybersecurity.md)
+
+- **Problem Formulation**: Understanding which problems are suitable for AI solutions is crucial. AI should be applied to problems that are descriptive rather than prescriptive.
+    - Are there [sub-problems that are suited to AI?](https://youtu.be/nvU0GbA9F9Q?t=1599)
+    - 1. Do you have enough data that you can use for training? Either locally or on the Internet.
+    - 2. Is there a probabilistic nature to the data? ie when you plot variables of the data you can see that there is a relationship. You could draw a line that follows the dots in chart. For example the sales price of property and relationship to size of property. There need to be **common dimensions**, every house has a size.
+- **Conditional Probability**: Over-reliance on AI can lead to **compounding errors**. Deterministic solutions should be employed where possible to ensure reliability.
