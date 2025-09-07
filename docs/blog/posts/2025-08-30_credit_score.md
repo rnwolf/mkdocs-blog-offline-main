@@ -35,15 +35,15 @@ This guide is part of a series that supports the [over arching personal finance 
     - [Open an account](https://www.loqbox.com/en-gb/save)
 
 
-    - You take a a loan with Loqbox, but you don't get the money! Consider the loan as a “locked” interest-free loan.
-    - Then you repay the loan by £20 per month from your loqbox account.
+    - You take a "loan" with Loqbox, but you don't get the money! Consider the loan as a “locked” interest-free loan.
+    - Then you "repay" the loan by £20 per month from your personal bank account. You basically commit to replaying the loan with £20 per month.
     - Memberships: Loqbox Lite(£0/year) or Full(£3/week)
-    - Full membership provides additional features to save and boost credit score. Check website.
+    - Full membership provides additional features to save and boost credit score. Check Loqbox website.
     - Weekly Loqbox Membership fee. Is paid Via your debit card (Can be made monthly payments into Loqbox Save, £3 per week = £153 for year)
-    - Loqbox reports your on-time payments and repayments to credit agencies.
+    - Loqbox reports your on-time re-payments to credit agencies.
     - Your credit score increases! - WINNER
     - After a year you can get the £240, for "free", if you open up a bank account with one of the Loqbox partner banks, otherwise, a £30 fee applies to transfer funds to a non-partner account.
-    - Net effect of signing up is £240 - £153 = £ 87.  (or less £30, if you don't use partner bank. then you get £57 assuming full membership )
+    - Net effect of signing up with lite account is £240 saved.  (or less £30, if you don't use partner bank to get the money out. )
 
 4. **Check Your Credit Score (UK)**
 
