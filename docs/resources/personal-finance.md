@@ -4,7 +4,48 @@ I have a couple of young adult children and I thought it might be helpful to cra
 
 This a comprehensive guide to personal finance, primarily for young adults, assuming they are located in the United Kingdom, but most of the advice is relevant no matter where you are located.
 
+I have used Google's AI summarization tool to create a audio summary of this document. It is available on YouTube [here](https://www.youtube.com/watch?v=RqzyHUQvaNg).
+
 By framing the guide around the management of four core life resources: time, health, experience, and money. The guide will explain how these resources are exchanged and prioritised throughout different life stages, emphasising the strategic choices involved. Furthermore, the text details foundational money management principles, including understanding net versus gross income, the importance of budgeting with practical methods like the multiple bank account system, and establishing emergency funds. It also covers key financial strategies such as maximising employer pension contributions, leveraging tax-advantaged accounts like ISAs and SIPPs, and the benefits of passive investing and compound growth. Finally, the sources touch upon broader financial topics like debt management, insurance, property, career development, and the psychological aspects of money, underscoring that the ultimate goal is to achieve a fulfilling life through conscious financial decisions.
+
+```mermaid
+---
+title: High level overview of personal finance guidance path
+---
+graph TD;
+   A[Got First Job] --> B[Create a Budget]
+
+    B --> C[Contribute to Emergency Fund<br><br>
+        - One month's expenses in a high-interest savings account<br>
+        - Separate emergency vs. regular account]
+
+    C --> D[Build Your Credit Score<br><br>
+        - Missed repayments hurt your score<br>
+        - Open a Loqbox account<br>
+        - Check & record credit scores]
+
+    D --> E[Pay Off High-Interest Debt]
+
+    E --> F[Maximise Employer Pension Match<br><br>
+        - Example: Contribute 5% → Employer adds 3%<br>
+        - Free Money!]
+
+    F --> G[Contribute to 'Full' Emergency Fund<br><br>
+        - Save 3–6 months of expenses<br>
+        - Keep it easily accessible]
+
+    G --> H[Contribute to LISA<br><br>
+        - Max £4k per year<br>
+        - 20% Government Bonus = Free Money!]
+
+
+    H --> I[Contribute to Stocks & Shares ISA<br><br>
+        - Up to £20k allowance<br>
+        - Minus £4k if used in LISA]
+
+    I --> J[Contribute to SIPP]
+
+```
 
 # Personal Finance Guide: Managing Life's Four Resources
 
