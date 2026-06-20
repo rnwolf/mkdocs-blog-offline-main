@@ -34,8 +34,8 @@ theme:
 
 plugins:
   - mermaid2:
-      #javascript: https://unpkg.com/mermaid@11.6.0/dist/mermaid.esm.min.mjs
-      javascript: https://127.0.0.1:8000/javascripts/mermaid.min.js
+      #javascript: https://unpkg.com/mermaid@11.15.0/dist/mermaid.min.js
+      javascript: javascripts/mermaid.min.js
   - git-revision-date-localized:
       fallback_to_build_date: true
   - meta
@@ -160,7 +160,6 @@ extra_css:
 
 extra_javascript:
   - javascripts/posthog-script.js
-  - javascripts/mermaid.min.js
   - javascripts/newsletter.js
 
 exclude_docs: |
