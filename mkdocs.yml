@@ -39,8 +39,7 @@ plugins:
   - git-revision-date-localized:
       fallback_to_build_date: true
   - meta
-  - tags:
-      tags_file: tags.md
+  - tags
   - caption:
       additional_identifier: ["List"]
   - social
@@ -92,9 +91,6 @@ extra:
       href: "/newsletter"
     - text: "RSS Feed by created date"
       href: "/feed_rss_created.xml"
-
-hooks:
-  - hooks/socialmedia.py
 
 markdown_extensions:
   - pymdownx.highlight:

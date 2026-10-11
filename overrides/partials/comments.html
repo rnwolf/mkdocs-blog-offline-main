@@ -1,0 +1,21 @@
+{# Share buttons for blog posts. Replaces hooks/socialmedia.py, since
+   Zensical does not run MkDocs hooks. comments.html is an empty partial
+   in both Material and Zensical, included right after the page content. #}
+{% if page.meta and page.meta.template == "blog-post.html" %}
+  {% set page_url = page.canonical_url %}
+  {% set page_title = (page.title ~ "\n") | urlencode %}
+  <div style="text-align: center;">
+    <h2 style="font-weight: bold; text-decoration: underline; padding: 10px; border-radius: 5px;">
+      Share on Socials
+    </h2>
+    <a href="https://www.linkedin.com/shareArticle?text={{ page_title }}&url={{ page_url }}" class="md-button">
+      Share on <span class="twemoji">{% include ".icons/fontawesome/brands/linkedin.svg" %}</span>
+    </a>
+    <a href="https://x.com/intent/tweet?text={{ page_title }}&url={{ page_url }}" class="md-button">
+      Share on <span class="twemoji">{% include ".icons/simple/x.svg" %}</span>
+    </a>
+    <a href="https://www.facebook.com/sharer/sharer.php?u={{ page_url }}" class="md-button">
+      Share on <span class="twemoji">{% include ".icons/simple/facebook.svg" %}</span>
+    </a>
+  </div>
+{% endif %}
