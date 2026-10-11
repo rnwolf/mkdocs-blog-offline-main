@@ -30,12 +30,12 @@ jobs:
       - run: uv sync --locked             # restore env
 
       - name: Build static website
-        run: uv run mkdocs build
+        run: uv run zensical build --clean
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ./site # Default output directory for 'mkdocs build'
+          path: ./site # Default output directory for 'zensical build'
 
   deploy:
     needs: build

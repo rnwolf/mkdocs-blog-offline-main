@@ -40,6 +40,7 @@ click==8.2.1
     # via
     #   mkdocs-blog-offline-main (pyproject.toml)
     #   mkdocs
+    #   zensical
 colorama==0.4.6
     # via
     #   mkdocs-blog-offline-main (pyproject.toml)
@@ -52,6 +53,8 @@ cssselect2==0.8.0
     # via
     #   mkdocs-blog-offline-main (pyproject.toml)
     #   cairosvg
+deepmerge==3.0.1
+    # via zensical
 defusedxml==0.7.1
     # via
     #   mkdocs-blog-offline-main (pyproject.toml)
@@ -93,6 +96,7 @@ jinja2==3.1.6
     #   mkdocs-blog-offline-main (pyproject.toml)
     #   mkdocs
     #   mkdocs-material
+    #   zensical
 jsbeautifier==1.15.4
     # via
     #   mkdocs-blog-offline-main (pyproject.toml)
@@ -112,6 +116,7 @@ markdown==3.9
     #   mkdocs
     #   mkdocs-material
     #   pymdown-extensions
+    #   zensical
 markupsafe==3.0.2
     # via
     #   mkdocs-blog-offline-main (pyproject.toml)
@@ -178,6 +183,7 @@ pathspec==1.1.1
     # via
     #   mkdocs-blog-offline-main (pyproject.toml)
     #   mkdocs
+    #   zensical
 pillow==10.4.0
     # via
     #   mkdocs-blog-offline-main (pyproject.toml)
@@ -194,11 +200,13 @@ pygments==2.21.0
     # via
     #   mkdocs-blog-offline-main (pyproject.toml)
     #   mkdocs-material
+    #   zensical
 pymdown-extensions==12.2
     # via
     #   mkdocs-blog-offline-main (pyproject.toml)
     #   mkdocs-material
     #   mkdocs-mermaid2-plugin
+    #   zensical
 python-dateutil==2.9.0.post0
     # via
     #   mkdocs-blog-offline-main (pyproject.toml)
@@ -214,6 +222,7 @@ pyyaml==6.0.2
     #   mkdocs-get-deps
     #   pymdown-extensions
     #   pyyaml-env-tag
+    #   zensical
 pyyaml-env-tag==1.1
     # via
     #   mkdocs-blog-offline-main (pyproject.toml)
@@ -250,6 +259,8 @@ tinycss2==1.4.0
     #   mkdocs-blog-offline-main (pyproject.toml)
     #   cairosvg
     #   cssselect2
+tomli==2.5.0
+    # via zensical
 typing-extensions==4.15.0
     # via
     #   mkdocs-blog-offline-main (pyproject.toml)
@@ -267,3 +278,5 @@ webencodings==0.5.1
     #   mkdocs-blog-offline-main (pyproject.toml)
     #   cssselect2
     #   tinycss2
+zensical==0.0.69
+    # via mkdocs-blog-offline-main (pyproject.toml)

@@ -499,10 +499,6 @@ dependencies = [
     { name = "urllib3" },
     { name = "watchdog" },
     { name = "webencodings" },
-]
-
-[package.dev-dependencies]
-dev = [
     { name = "zensical" },
 ]
 
@@ -574,10 +570,8 @@ requires-dist = [
     { name = "urllib3", specifier = "==2.5.0" },
     { name = "watchdog", specifier = "==6.0.0" },
     { name = "webencodings", specifier = "==0.5.1" },
+    { name = "zensical", specifier = "==0.0.69" },
 ]
-
-[package.metadata.requires-dev]
-dev = [{ name = "zensical", specifier = ">=0.0.69" }]
 
 [[package]]
 name = "mkdocs-caption"

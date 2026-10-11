@@ -1,6 +1,6 @@
 #!/bin/sh
 # Use this script as build command in Cloudflare Pages
-mkdocs build
+zensical build --clean
 ## Overwrite the default robots.txt file to ensure this site is indexed.
 cat << EOF > ./site/robots.txt
 User-agent: *
