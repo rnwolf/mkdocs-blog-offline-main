@@ -1,4 +1,4 @@
-# Create a personal blog based on MkDocs and Zensical
+# Create a personal blog based on Zensical
 
 ## Why?
 
@@ -14,24 +14,21 @@ I need a reliable blogging system to create digital content.
   2 - Install dependencies
       `uv sync`
 
-  3 - Install Image dependencies
-      https://squidfunk.github.io/mkdocs-material/plugins/requirements/image-processing/
-
-  4 - Start interactive document website
+  3 - Start interactive document website
       `uv run zensical serve`
 
 Visit the local server (usually http://localhost:8000) to check content is as expected.
 
 ### Zensical command
 
-The site is built with [Zensical](https://github.com/zensical/zensical), which reads `mkdocs.yml`.
+The site is built with [Zensical](https://github.com/zensical/zensical) and configured in `zensical.toml`.
 
 * `zensical serve` - Start the live-reloading docs server.
 * `zensical build --clean` - Build the documentation site.
 * `zensical -h` - Print help message and exit.
 
-Zensical does not run MkDocs hooks or every MkDocs plugin (e.g. git revision dates and
-numbered captions). MkDocs is still installed, so `uv run mkdocs build` remains a fallback.
+The site was originally built with MkDocs (`mkdocs.yml`). Zensical does not run MkDocs hooks
+or third-party MkDocs plugins, so customisations live in `overrides/` templates instead.
 
 
 ## Build site pages
@@ -40,7 +37,7 @@ numbered captions). MkDocs is still installed, so `uv run mkdocs build` remains 
 
 ## Build requirements.txt for cloudflare build
 
-If the python plugins have been updated:
+If the Python dependencies have been updated:
 
 `uv pip compile pyproject.toml -o requirements.txt`
 
@@ -66,7 +63,7 @@ http://127.0.0.1:8000/feed_rss_updated.xml
 
 ## PostHog Website analytics
 
-To add a script to the footer in an MkDocs project, you can use the extra_javascript configuration option in the mkdocs.yml file. Here's how you can do it:
+To add a script to the footer, you can use the extra_javascript configuration option in the zensical.toml file. Here's how you can do it:
 
 ### 1. Add Your Script File
 
@@ -79,18 +76,16 @@ docs/
 └── javascripts/
     └── posthog-script.js
 
-### 2. Edit mkdocs.yml
+### 2. Edit zensical.toml
 
-In your mkdocs.yml configuration file, add the path to your JavaScript file under the extra_javascript option:
+In your zensical.toml configuration file, add the path to your JavaScript file under the extra_javascript option:
 
 
-```
-site_name: My Awesome Site
-theme:
-  name: material  # Or any other theme you're using
-
-extra_javascript:
-  - javascripts/posthog-script.js
+```toml
+[project]
+extra_javascript = [
+  "javascripts/posthog-script.js",
+]
 ```
 
 This will ensure the script is included in the footer of every page.
@@ -139,7 +134,6 @@ The default robots.txt prevents pre-prod sites from being indexed.
   + Cloudflare
     - Make sure we have updated requirements.txt
         - `uv pip compile pyproject.toml -o requirements.txt`
-        - https://www.youtube.com/watch?v=7-HhLascLuM How to Host MKDocs on Cloudflare Pages
 
 ## Home page - Featured Articles
 
