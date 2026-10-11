@@ -1,4 +1,4 @@
-# Create a personal blog based on MkDocs
+# Create a personal blog based on MkDocs and Zensical
 
 ## Why?
 
@@ -18,20 +18,25 @@ I need a reliable blogging system to create digital content.
       https://squidfunk.github.io/mkdocs-material/plugins/requirements/image-processing/
 
   4 - Start interactive document website
-      `uv run  mkdocs serve`
+      `uv run zensical serve`
 
-Visit the local server (usually http://127.0.0.1:8000) to check content is as expected.
+Visit the local server (usually http://localhost:8000) to check content is as expected.
 
-### Mkdocs command
+### Zensical command
 
-* `mkdocs serve` - Start the live-reloading docs server.
-* `mkdocs build` - Build the documentation site.
-* `mkdocs -h` - Print help message and exit.
+The site is built with [Zensical](https://github.com/zensical/zensical), which reads `mkdocs.yml`.
+
+* `zensical serve` - Start the live-reloading docs server.
+* `zensical build --clean` - Build the documentation site.
+* `zensical -h` - Print help message and exit.
+
+Zensical does not run MkDocs hooks or every MkDocs plugin (e.g. git revision dates and
+numbered captions). MkDocs is still installed, so `uv run mkdocs build` remains a fallback.
 
 
 ## Build site pages
 
-`uv run mkdocs build`
+`uv run zensical build --clean`
 
 ## Build requirements.txt for cloudflare build
 
