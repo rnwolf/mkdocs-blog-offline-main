@@ -33,9 +33,6 @@ theme:
         accent: deep purple
 
 plugins:
-  - mermaid2:
-      #javascript: https://unpkg.com/mermaid@11.15.0/dist/mermaid.min.js
-      javascript: javascripts/mermaid.min.js
   - git-revision-date-localized:
       fallback_to_build_date: true
   - meta
@@ -155,6 +152,8 @@ extra_css:
   - stylesheets/newsletter.css
 
 extra_javascript:
+  # Self-hosted, so the theme uses it instead of fetching from unpkg (blocked by CSP)
+  - javascripts/mermaid.min.js
   - javascripts/posthog-script.js
   - javascripts/newsletter.js
 
